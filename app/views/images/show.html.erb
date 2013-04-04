@@ -1,0 +1,230 @@
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<div class="container-fluid">
+  <h2 style="text-align: center;">Upload Image</h2>
+  <div class="row-fluid">
+    <!--div class="page-header">
+      <h2>Upload Image</h2>
+    </div-->
+    <div class="span3"></div>
+    <div class="span9">
+      <div class="span10"> <div style="width:350px;" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
+      <div class="span2">
+		<%=form_for @image, :html => {:multipart => true} do |f| %>
+		  <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
+		  <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
+		<%end%>
+  
+        <br>
+      <form name="dwn" method="post" action="/image_download" id="dwn">
+		<input type="hidden" name="final-image" id="final-image" value="">
+		<input type="hidden" name="time" id="time" value="">
+		  <input type="hidden" name="imurl" id="imurl" value="<%=@image.image_url%>">
+		
+		<button type="button" id="save" class="btn btn-primary">Save</button>
+        <!--a href="/image_download">save</a-->
+	  </form>
+     
+      <br>
+      <div class="btn-group">
+        <%=image_tag('fshare.png',:id=>"fbshare")%>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+ <div class="row-fluid">
+  <div class="span4"></div>
+  <div class="span8"> <label>Change pixel resolution</label> <div  id="v-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="height: 89%;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 89%;"></a></div>
+            <span id="output">2</span></div>
+ </div>
+<div>           
+<%=image_tag('logo.png',:style=>"display:none",:id=>"textimage")%>
+<input type="hidden" name="final-img" id="final-img" value="">
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+
+<script>
+
+window.onload = function() {
+
+  var img1 = document.getElementById('my_img')
+
+  var pixelOpts = [ { resolution: 2 } ]
+  var pixelimg1 = img1.closePixelate( pixelOpts )
+
+  var range = document.getElementById('range')
+  var output = document.getElementById('output')
+//$("#fbshare").
+  $("#v-slider").slider({
+
+    range: "min",
+    min: 0,
+    max: 100,
+    value: 2,
+    slide: function (event, ui) {
+        $("#output").html(ui.value);
+        
+    var res = ui.value ;
+    res = Math.floor( res / 2 ) * 2
+    res = Math.max( 2, Math.min( 100, res ) )
+    output.textContent = res
+    // console.log( res );
+    pixelOpts = [ { resolution: res } ]
+    pixelimg1.render( pixelOpts )
+        
+        
+    }
+});
+  //  var canvas = document.getElementById('my_img');
+//	var ctx = canvas.getContext("2d");
+   // ctx.drawImage(document.getElementById('textimage'),175,160)
+    //var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),20,20)},100);
+    //var src = canvaspad.toDataURL();
+   // $("#textimage").attr('src',src); 
+
+}
+$(document).ready(function(){
+
+  $("#save").click(function(){
+ //   alert('hi');
+    var canvas = document.getElementById('my_img');
+	var ctx = canvas.getContext("2d");
+   // var src = canvaspad.toDataURL();
+    //$("#textimage").attr('src',src);
+   // var img =document.getElementById('textimage');
+//    alert(canvas.width+'====='+canvas.height);
+	
+    var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),canvas.width-76,canvas.height-41)
+	    var src = canvas.toDataURL();
+    var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
+	var ts = Math.round((new Date()).getTime() / 1000);
+	//alert(canvasrc);
+	$("#final-image").val(canvasrc);
+	$("#time").val(ts);
+	$("#dwn").submit();
+					 },1000);
+
+	//return false;
+	//if (canvasrc) {
+	 // $("#dwn").submit();
+	//}
+  // setTimeout(function(){},5000);
+
+  /*  $.ajax({
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    url: "/image_download",
+    type: "POST",
+    data: { 'src': canvasrc,'img_url': "<%=@image.image_url%>",'id':ts},
+    cache: false,
+    success: function (response) {
+      $("#final-img").val(response);
+	  
+      //alert(response);
+        return true;
+    }
+});*/
+  });
+
+	$('#fbshare').click(function() {
+	  
+	  
+	      var canvas = document.getElementById('my_img');
+	var ctx = canvas.getContext("2d");
+   // var src = canvaspad.toDataURL();
+    //$("#textimage").attr('src',src);
+   // var img =document.getElementById('textimage');
+//    alert(canvas.width+'====='+canvas.height);
+	
+    var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),canvas.width-76,canvas.height-41)
+
+
+    var src = canvas.toDataURL();
+    var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
+    var ts = Math.round((new Date()).getTime() / 1000);
+
+    $.ajax({
+    beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+    url: "/image_save",
+    type: "POST",
+    data: { 'src': canvasrc,'img_url': "<%=@image.image_url%>",'id':ts},
+    cache: false,
+    success: function (response) {
+	  $("#final-img").val(response);
+
+      //$("#final-img").val(response);
+	  
+      //alert(response);
+        return true;
+    }
+});
+
+
+
+
+},1000);
+
+	setTimeout(function(){
+      // do something
+	  
+	  		  	var filename =$("#final-img").val();
+		FB.init({appId: "342990409138730", status: true, cookie: true});
+		FB.ui(
+	  {
+		method: 'feed',
+		name: 'Display Image',
+		link: filename,
+		picture: filename,
+		caption: 'Reference Documentation',
+		description: 'Dialogs provide a simple, consistent interface for applications to interface with users.'
+	  },
+  function(response) {
+    if (response && response.post_id) {
+      //alert('Post was published.');
+    } else {
+     // alert('Post was not published.');
+    }
+  }
+);
+	
+	  
+},3000);
+	
+	//var uid = $('#uid').val();
+		//var imgid = $('#mimg').val();
+		//var dpath = "http://09php.com/FBAPP/Images";
+		//var dpath = "http://192.168.1.18/php/fb/images";
+
+	});
+
+
+
+
+});
+	
+</script>
+
+<script>
+  $(document).ready(function(){
+//  $("#save").fadeTo("slow",0.4);
+//  $("#fbshare").fadeTo("slow",0.4);
+  $("#image_image").on('change',function(){
+   // $("#uplds").click();
+   // alert('change');
+   // $.post('/image/create', $('#imgupld12').serialize())
+    $("#new_image").submit();
+  })
+  
+
+  
+  
+  
+  });
+</script>

@@ -1,0 +1,34 @@
+<div id="fb-root"></div>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<script type="text/javascript">
+//  alert(location.href);
+FB.init({
+    appId: '342990409138730',
+    status: true,
+    cookie: true,
+    oauth: true
+});
+
+FB.login(function(response){
+console.log(response);
+if (response.status == 'connected') {
+FB.getLoginStatus(function(stsResp) {
+ console.log(stsResp);
+    if(stsResp.authResponse) {
+      console.log(stsResp.authResponse);
+      $.post('/user/create', {'uid':stsResp.authResponse.userID,'token':stsResp.authResponse.accessToken}, function(response) {
+       if(response == 's'){
+        window.location = '/images/new';
+        } 
+    // log the response to the console
+      console.log("Response: "+response);
+      });
+        //alert(stsResp.authResponse.userID);
+    } else {
+
+    }
+});
+}
+
+},{scope:'read_stream,publish_stream,offline_access'});
+</script>

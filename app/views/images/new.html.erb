@@ -1,0 +1,59 @@
+
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<%#= link_to 'Login with Facebook', '/auth/facebook/' %>
+
+<div class="container-fluid">
+  <h2 style="text-align: center;">Upload Image</h2>
+  <div class="row-fluid">
+    <!--div class="page-header">
+      <h2>Upload Image</h2>
+    </div-->
+    <div class="span3"></div>
+    <div class="span9">
+      <div class="span5"><%=image_tag('upld.png',:id=>"")%> </div>
+      <div class="span7 pull-left">
+     <%=form_for @image, :html => {:multipart => true} do |f| %>
+    <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
+    <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
+  <%end%>
+  
+        <br>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="save">Save</button>
+      </div>
+      <br>
+      <div class="btn-group">
+        <%=image_tag('fshare.png',:id=>"fbshare")%>
+      </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+  $(document).ready(function(){
+  $("#save").fadeTo("slow",0.4);
+  $("#fbshare").fadeTo("slow",0.4);
+  $("#image_image").on('change',function(){
+   // $("#uplds").click();
+   // alert('change');
+   // $.post('/image/create', $('#imgupld12').serialize())
+    $("#new_image").submit();
+  })
+  
+
+  
+  
+  
+  });
+</script>
