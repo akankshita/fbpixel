@@ -146,7 +146,7 @@ $(document).ready(function(){
     beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
     url: "/image_download",
     type: "POST",
-    data: { 'src': canvasrc,'img_url': "<%=@image.image_url%>",'id':ts},
+    data: { 'src': canvasrc,'img_url': "<#%=@image.image_url%>",'id':ts},
     cache: false,
     success: function (response) {
       $("#final-img").val(response);
