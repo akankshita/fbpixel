@@ -11,11 +11,11 @@
 <div class="container-fluid">
   
   <div class="row-fluid">
+    <!--div class="page-header">
+      <h2>Upload Image</h2>
+    </div-->
     <div class="span12">
-      <div class="span9"> <div style="width:480px;height: 550" id="upldimage"></div>
-        <div class="span3">
-            <%= image_tag @image.image_url(:thumb) ,:id=>"my_img", :style=>"float: right;"%>
-        </div>
+      <div class="span9"> <div style="width:480px;height: 550" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
       <div class="span3">
 		<%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 		  <div id='file_browse_wrapper' ><%= f.file_field :image %></div>
@@ -27,7 +27,7 @@
 		<input type="hidden" name="final-image" id="final-image" value="">
 		<input type="hidden" name="time" id="time" value="">
 		  <input type="hidden" name="imurl" id="imurl" value="<%=@image.image_url%>">
-		<%=image_tag('save.png',:id=>"save",:style=>"float: right;")%> <br>
+		<%=image_tag('save.png',:id=>"save",:style=>"float: right;")%> <br><
 		
         <!--a href="/image_download">save</a-->
 	  </form>
