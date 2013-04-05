@@ -16,10 +16,10 @@
     </div>
     <div class="span3">
       <%=form_for @image, :html => {:multipart => true,:style=>"margin-bottom: -9px;"} do |f| %>
-        <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
+        <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/>
         <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
       <%end%>
-      <%=image_tag('dsave.png')%>
+      <%=image_tag('dsave.png')%> <br>
       <%=image_tag('dfshare.png')%><br><br>
     </div>
    </div>
