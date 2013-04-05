@@ -14,7 +14,7 @@
     </div-->
     <div class="span3"></div>
     <div class="span9">
-      <div class="span10"> <div style="width:350px;" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
+      <div class="span10"> <div style="width:380px;" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
       <div class="span2">
 		<%=form_for @image, :html => {:multipart => true} do |f| %>
 		  <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
@@ -49,6 +49,7 @@
 <div>
   <br />
 <div class="row-fluid">
+  <div class="span3"></div>
   <div class="span9">
   <p style="color: white;">
 	In honor of our new collection, MegaPixel FX, we are giving our fans the opportunity to pixelate themselves! Upload a photo from your computer, then use the slide bar below to decide how pixelated you want your picture. Once you're done with your digitized masterpiece you can share it with all your friends via Facebook, Twitter, or email. Have fun and keep it family friendly, please!
