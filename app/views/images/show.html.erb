@@ -19,7 +19,7 @@
       <div class="span3">
 		<%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 		  <div id='file_browse_wrapper' ><%= f.file_field :image %></div>
-		  <%= f.submit "Upload Image",:class => 'btn',:style=>"float: right;"%>
+		  <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
 		<%end%>
   
         <br>  
