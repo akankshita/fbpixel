@@ -19,7 +19,7 @@
       <div class="span3">
 		<%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 		  <div id='file_browse_wrapper' ><%= f.file_field :image %></div>
-		  <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
+		  <%= f.submit "Upload Image",:class => 'btn',:style=>"float: right;"%>
 		<%end%>
   
         <br>  
@@ -27,7 +27,7 @@
 		<input type="hidden" name="final-image" id="final-image" value="">
 		<input type="hidden" name="time" id="time" value="">
 		  <input type="hidden" name="imurl" id="imurl" value="<%=@image.image_url%>">
-		<%=image_tag('save.png',:id=>"save",:style=>"float: right;")%> <br><br>
+		<%=image_tag('save.png',:id=>"save",:style=>"float: right;")%> <br>
 		
         <!--a href="/image_download">save</a-->
 	  </form>
