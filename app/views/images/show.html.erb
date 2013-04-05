@@ -6,33 +6,35 @@
   }
 </style>
 <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-<div class="container-fluid">
+<div class="container">
   <h2>ORLY MegaPixelFX - Pixelate Yourself!</h2>
+<div class="container-fluid">
+  
   <div class="row-fluid">
     <!--div class="page-header">
       <h2>Upload Image</h2>
     </div-->
     <div class="span12">
-      <div class="span9"> <div style="width:500px;height: 550" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
+      <div class="span9"> <div style="width:480px;height: 550" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
       <div class="span3">
-		<%=form_for @image, :html => {:multipart => true,:id => "new_image"} do |f| %>
-		  <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
+		<%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
+		  <div id='file_browse_wrapper' ><%= f.file_field :image %></div>
 		  <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
 		<%end%>
   
-        <br>
+        <br>  
       <form name="dwn" method="post" action="/image_download" id="dwn">
 		<input type="hidden" name="final-image" id="final-image" value="">
 		<input type="hidden" name="time" id="time" value="">
 		  <input type="hidden" name="imurl" id="imurl" value="<%=@image.image_url%>">
+		<%=image_tag('save.png',:id=>"save",:style=>"float: right;")%>
 		
-		<button type="button" id="save" class="btn btn-large btn-primary">Save</button>
         <!--a href="/image_download">save</a-->
 	  </form>
      
-      <br>
+      <br><br>
       <div class="btn-group">
-        <%=image_tag('fshare.png',:id=>"fbshare")%>
+        <%=image_tag('fshare.png',:id=>"fbshare",:style=>"float: right;")%>
       </div>
 
       </div>
@@ -40,23 +42,35 @@
     </div>
   </div>
 </div>
+<br/>
 <div class="row-fluid">
  <div class="span9">
-  <span>Pixelize Less <div  id="v-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="height: 89%;background-color: #0E90D2;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 89%;"></a></div>Pixelize Less</span>
-  <span id="output">2</span><span style="color: white">%
+  <span style="float:left;margin-left: 20px;margin-right: 12px;">
+	Pixelize Less 
+  </span>
+  <span style="float:left;margin-top: 3px;">
+	<div  id="v-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="height: 89%;background-color: #0E90D2;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 89%;"></a></div>
+  </span>
+  <span id="output" style="float:left">2</span><span style="color: white;float:left">%</span>
+  <span style="float:right;">
+	Pixelize More
+  </span>
+  
  </div>
  <div class="span3">
   
  </div>
+ 
 </div>
 <div>
-  <br /><br /><br /> <br /><br /><br />
+  <br /><br /><br /> 
 <div class="row-fluid">
   <p style="color: white;text-align: center;">
 	In honor of our new collection, MegaPixel FX, we are giving our fans the opportunity to pixelate themselves! Upload a photo from your computer, then use the slide bar below to decide how pixelated you want your picture. Once you're done with your digitized masterpiece you can share it with all your friends via Facebook, Twitter, or email. Have fun and keep it family friendly, please!
   </p>
 </div>
 
+</div>
 <%=image_tag('logo.png',:style=>"display:none",:id=>"textimage")%>
 <input type="hidden" name="final-img" id="final-img" value="">
 <script src="http://connect.facebook.net/en_US/all.js"></script>
@@ -153,7 +167,7 @@ $(document).ready(function(){
    // var img =document.getElementById('textimage');
 //    alert(canvas.width+'====='+canvas.height);
 	
-    var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),canvas.width-86,canvas.height-51)
+    var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),canvas.width-100,canvas.height-75)
 
 
     var src = canvas.toDataURL();
@@ -185,6 +199,7 @@ $(document).ready(function(){
       // do something
 	  
 	  	var filename =$("#final-img").val();
+		//alert(filename);
 		FB.init({appId: "342990409138730", status: true, cookie: true});
 		FB.ui(
 	  {

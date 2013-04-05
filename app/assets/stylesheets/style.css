@@ -5,7 +5,7 @@
       body {
         height: 100%;
         /* The html and body elements cannot have any padding or margin. */
-         background: url("background.jpg") repeat-x scroll 50% 50% #FFFFFF;
+         background: url("background.png") repeat-x scroll 50% 50% #FFFFFF;
       }
 
       /* Wrapper for page content to push down footer */
@@ -967,7 +967,7 @@ h2,label,span {color:white}
 }
 .ui-corner-all {
     border-radius: 4px 4px 4px 4px;
-    width: 200px
+    width: 275px
 }
 .ui-corner-top, .ui-corner-left, .ui-corner-tl {
     border-top-left-radius: 4px;
@@ -2139,8 +2139,8 @@ div.wijmo-wijmenu .wijmo-wijmenu-child .wijmo-wijmenu-text {
 }
 
 #file_browse_wrapper {
-    width: 93px;
-    height: 28px;
+    width: 100%;
+    height: 60px;
     background: url('upload.png') 0 0 no-repeat;
     border:none;
     overflow:hidden;
