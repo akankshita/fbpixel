@@ -88,8 +88,6 @@ $(document).ready(function(){
 					cache: false,
 					success: function (response) {
 					  $("#final-img").val(response);
-				
-						return true;
 						var filename =$("#final-img").val();
 						FB.init({appId: "157299074435054", status: true, cookie: true});
 						FB.ui(
