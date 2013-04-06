@@ -94,7 +94,6 @@ $(document).ready(function(){
 				});
 				
 					var filename =$("#final-img").val();
-					alert(filename);
 					FB.init({appId: "157299074435054", status: true, cookie: true});
 					FB.ui(
 						{
@@ -112,7 +111,7 @@ $(document).ready(function(){
 						});
 				
 		  
-			},5000);
+			},7000);
 	
 
 	});
