@@ -90,28 +90,30 @@ $(document).ready(function(){
 					  $("#final-img").val(response);
 				
 						return true;
+						var filename =$("#final-img").val();
+						FB.init({appId: "157299074435054", status: true, cookie: true});
+						FB.ui(
+							{
+							  method: 'feed',
+							  name: 'ORLY MegaPIxelFX ? Pixelate Yourself!',
+							  link: filename,
+							  picture: filename,
+							  caption: '',
+							  description: 'In honor of our new collection, MegaPixel FX, we are giving our fans the opportunity to pixelate themselves!'
+							},
+							function(response) {
+							  if (response && response.post_id) {
+							  } else {
+							  }
+							});
+
 					}
 				});
 				
-					var filename =$("#final-img").val();
-					FB.init({appId: "157299074435054", status: true, cookie: true});
-					FB.ui(
-						{
-						  method: 'feed',
-						  name: 'ORLY MegaPIxelFX ? Pixelate Yourself!',
-						  link: filename,
-						  picture: filename,
-						  caption: '',
-						  description: 'In honor of our new collection, MegaPixel FX, we are giving our fans the opportunity to pixelate themselves!'
-						},
-						function(response) {
-						  if (response && response.post_id) {
-						  } else {
-						  }
-						});
+
 				
 		  
-			},7000);
+			},3000);
 	
 
 	});
