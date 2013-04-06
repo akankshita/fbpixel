@@ -1,13 +1,3 @@
-
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
-<style type="text/css">
-  body {
-    padding-top: 60px;
-    padding-bottom: 40px;
-  }
-</style>
-<link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
-<%#= link_to 'Login with Facebook', '/auth/facebook/' %>
 <div class="container">
    <h2 >ORLY MegaPixelFX - Pixelate Yourself!</h2>
    <div class="container-fluid">
@@ -19,33 +9,15 @@
         <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
         <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
       <%end%>
-      <%=image_tag('dfshare.png')%><br><br>
-      <%=image_tag('dsave.png')%>
+      <%=image_tag('dsave.png')%><br><br><br>
+      <%=image_tag('dfshare.png')%>
     </div>
    </div>
   <br /><br /><br /><br />
   <div class="row">
-    <div class="span9">
-    <p style="color: white;">
-      In honor of our new collection, MegaPixel FX, we are giving our fans the opportunity to pixelate themselves! Upload a photo from your computer, then use the slide bar below to decide how pixelated you want your picture. Once you're done with your digitized masterpiece you can share it with all your friends via Facebook, Twitter, or email. Have fun and keep it family friendly, please!
-    </p>
-   </div>
+      <div class="span7">
+         <%= render :partial => '/images/instruction', :layout => false %>
+      </div>
+      <div class="span5"></div>
   </div>   
 </div>
-<script>
-  $(document).ready(function(){
-  $("#save").fadeTo("slow",0.4);
-  $("#fbshare").fadeTo("slow",0.4);
-  $("#image_image").on('change',function(){
-   // $("#uplds").click();
-   // alert('change');
-   // $.post('/image/create', $('#imgupld12').serialize())
-    $("#new_image").submit();
-  })
-  
-
-  
-  
-  
-  });
-</script>

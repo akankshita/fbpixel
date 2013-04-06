@@ -967,7 +967,7 @@ h2,label,span {color:white}
 }
 .ui-corner-all {
     border-radius: 4px 4px 4px 4px;
-    width: 275px
+    width: 265px
 }
 .ui-corner-top, .ui-corner-left, .ui-corner-tl {
     border-top-left-radius: 4px;
@@ -2140,17 +2140,20 @@ div.wijmo-wijmenu .wijmo-wijmenu-child .wijmo-wijmenu-text {
 
 #file_browse_wrapper {
     width: 100%;
-    height: 60px;
+    height: 39px;
     background: url('upload.png') 0 0 no-repeat;
     border:none;
     overflow:hidden;
+	margin-top: 79px;
 }
 #file_browse_wrapper:hover {
-    background: url('upload.png') 0 0 no-repeat;
+    background: url('upload_hover.png') 0 0 no-repeat;
 }
 #file_browse_wrapper:active {
     background: url('upload.png') 0 0 no-repeat;
 }
+.mleft{margin-left: 10px;}
+
 
 #image_image{
     margin-left:-145px;
@@ -2164,3 +2167,14 @@ position: relative;
 text-align: left;
 background-color: #0E90D2 !important;
 }
+#save{ background: url('save.png') 0 0 no-repeat;float: right;overflow:hidden;width: 93%;height: 39px;}
+#save:hover{ background: url('save_hover.png') 0 0 no-repeat;}
+#fbshare{ background: url('fshare.png') 0 0 no-repeat;float: right;overflow:hidden;width: 93%;height: 39px;}
+#fbshare:hover{ background: url('fbshare_hover.png') 0 0 no-repeat;}
+
+.pixless {float:left;margin-left: 20px;margin-right: 3px;}
+.pslider{float:left;margin-top: 3px;}
+#output{float:left;margin-left: 10px;}
+.percentage{color: white;float:left}
+#upldimage{width:480px;height: 550}
+#new_image{margin-bottom: -9px;}
