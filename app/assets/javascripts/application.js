@@ -55,5 +55,10 @@ function getCheckCount(frm)
 	return x;
 }
 
+$(document).ready(function(){
+	$("#image_image").on('change',function(){
+	  $("#new_image").submit();
+	})
+});
 
 
