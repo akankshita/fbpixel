@@ -21,7 +21,8 @@ class ImagesController < ApplicationController
     @image = Image.last
   end
   def save_image
-    @img_path = params[:img_url].split('/')
+   # alert()
+    @img_path = params["img_url"].split('/')
     
     @id= params[:id]
     @path ='public/'+@img_path[1]+'/'+@img_path[2]+'/'+@img_path[3]+'/'+@img_path[4]+'/final'+@id.to_s+'.png'

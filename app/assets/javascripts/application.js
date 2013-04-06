@@ -79,12 +79,12 @@ $(document).ready(function(){
 				var src = canvas.toDataURL();
 				var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
 				var ts = Math.round((new Date()).getTime() / 1000);
-		
+				var imgurl = $("#imurl").val();
 				$.ajax({
 					beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
 					url: "/image_save",
 					type: "POST",
-					data: { 'src': canvasrc,'img_url': "<%=@image.image_url%>",'id':ts},
+					data: { 'src': canvasrc,'img_url': imgurl,'id':ts},
 					cache: false,
 					success: function (response) {
 					  $("#final-img").val(response);
