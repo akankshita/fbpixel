@@ -51,7 +51,7 @@
   <span style="float:left;margin-top: 3px;">
 	<div  id="v-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="height: 89%;background-color: #0E90D2;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 89%;"></a></div>
   </span>
-  <span id="output" style="float:left">s</span><span style="color: white;float:left"></span>
+  <!--<span id="output" style="float:left"></span><span style="color: white;float:left"></span>-->
   <span style="float:right;">
 	Pixelize More
   </span>
@@ -92,23 +92,23 @@ window.onload = function() {
     range: "min",
     min: 0,
     max: 100,
-    value: 2//,
-//    slide: function (event, ui) {
-//        $("#output").html(ui.value);
-//
-//    var res = ui.value ;
-//                res = Math.floor(res / 2) * 2
-//    res = Math.max( 2, Math.min( 100, res ) )
-//                output.textContent = res
-//                // console.log( res );
-//                pixelOpts = [
-//                    { resolution: res }
-//                ]
-//                pixelimg1.render(pixelOpts)
-//
-//
-//            }
-//        });
+    value: 2,
+    slide: function (event, ui) {
+      //  $("#output").html(ui.value);
+
+    var res = ui.value ;
+                res = Math.floor(res / 2) * 2
+    res = Math.max( 2, Math.min( 100, res ) )
+                output.textContent = res
+                // console.log( res );
+                pixelOpts = [
+                    { resolution: res }
+                ]
+                pixelimg1.render(pixelOpts)
+
+
+            }
+        });
         //  var canvas = document.getElementById('my_img');
 //	var ctx = canvas.getContext("2d");
         // ctx.drawImage(document.getElementById('textimage'),175,160)
