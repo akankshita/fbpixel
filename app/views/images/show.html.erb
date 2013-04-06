@@ -85,30 +85,30 @@ window.onload = function() {
   var pixelimg1 = img1.closePixelate( pixelOpts )
 
   var range = document.getElementById('range')
-  var output = document.getElementById('output')
+//  var output = document.getElementById('output')
 //$("#fbshare").
   $("#v-slider").slider({
 
     range: "min",
     min: 0,
     max: 100,
-    value: 2,
-    slide: function (event, ui) {
-        $("#output").html(ui.value);
-
-    var res = ui.value ;
-                res = Math.floor(res / 2) * 2
-    res = Math.max( 2, Math.min( 100, res ) )
-                output.textContent = res
-                // console.log( res );
-                pixelOpts = [
-                    { resolution: res }
-                ]
-                pixelimg1.render(pixelOpts)
-
-
-            }
-        });
+    value: 2//,
+//    slide: function (event, ui) {
+//        $("#output").html(ui.value);
+//
+//    var res = ui.value ;
+//                res = Math.floor(res / 2) * 2
+//    res = Math.max( 2, Math.min( 100, res ) )
+//                output.textContent = res
+//                // console.log( res );
+//                pixelOpts = [
+//                    { resolution: res }
+//                ]
+//                pixelimg1.render(pixelOpts)
+//
+//
+//            }
+//        });
         //  var canvas = document.getElementById('my_img');
 //	var ctx = canvas.getContext("2d");
         // ctx.drawImage(document.getElementById('textimage'),175,160)
