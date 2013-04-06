@@ -46,6 +46,77 @@ function canvas() {
     }
 });
 }
+$(document).ready(function(){
+	$("#image_image").on('change',function(){
+	  $("#new_image").submit();
+	});
+	
+	$("#image_image").on('change',function(){
+		 $("#new_image").submit();
+	});
+	
+	$("#save").click(function(){
+		var canvas = document.getElementById('my_img');
+		var ctx = canvas.getContext("2d");
+		var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),canvas.width-100,canvas.height-75)
+		var src = canvas.toDataURL();
+		var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
+		var ts = Math.round((new Date()).getTime() / 1000);
+		$("#final-image").val(canvasrc);
+		$("#time").val(ts);
+		$("#dwn").submit();
+		},1000);
+	});
 
+	
+	$('#fbshare').click(function() {
+	  
+	  
+		var canvas = document.getElementById('my_img');
+		var ctx = canvas.getContext("2d");
+		var t=setTimeout(function(){
+			ctx.drawImage(document.getElementById('textimage'),canvas.width-100,canvas.height-75);
+				var src = canvas.toDataURL();
+				var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
+				var ts = Math.round((new Date()).getTime() / 1000);
+				var imgurl = $("#imurl").val();
+				$.ajax({
+					beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+					url: "/image_save",
+					type: "POST",
+					data: { 'src': canvasrc,'img_url': imgurl,'id':ts},
+					cache: false,
+					success: function (response) {
+					  $("#final-img").val(response);
+						var filename =$("#final-img").val();
+						FB.init({appId: "157299074435054", status: true, cookie: true});
+						FB.ui(
+							{
+							  method: 'feed',
+							  name: 'ORLY MegaPIxelFX ? Pixelate Yourself!',
+							  link: filename,
+							  picture: filename,
+							  caption: '',
+							  description: 'In honor of our new collection, MegaPixel FX, we are giving our fans the opportunity to pixelate themselves!'
+							},
+							function(response) {
+							  if (response && response.post_id) {
+							  } else {
+							  }
+							});
+
+					}
+				});
+				
+
+				
+		  
+			},3000);
+	
+
+	});
+	
+	
+});
 
 
