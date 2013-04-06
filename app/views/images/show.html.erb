@@ -51,7 +51,7 @@
   <span style="float:left;margin-top: 3px;">
 	<div  id="v-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="height: 89%;background-color: #0E90D2;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 89%;"></a></div>
   </span>
-  <!--<span id="output" style="float:left"></span><span style="color: white;float:left"></span>-->
+  <span id="output" style="float:left">2</span><span style="color: white;float:left">%</span>
   <span style="float:right;">
 	Pixelize More
   </span>
@@ -85,7 +85,7 @@ window.onload = function() {
   var pixelimg1 = img1.closePixelate( pixelOpts )
 
   var range = document.getElementById('range')
-//  var output = document.getElementById('output')
+  var output = document.getElementById('output')
 //$("#fbshare").
   $("#v-slider").slider({
 
@@ -94,7 +94,7 @@ window.onload = function() {
     max: 100,
     value: 2,
     slide: function (event, ui) {
-      //  $("#output").html(ui.value);
+        $("#output").html(ui.value);
 
     var res = ui.value ;
                 res = Math.floor(res / 2) * 2
