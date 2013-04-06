@@ -3,12 +3,12 @@
   <div class="container-fluid">
 	<div class="row-fluid">
 	  <div class="span12">
-		<div class="span9"> <div id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
+		<div class="span9"> <div style="width:480px;height: 550" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
 		<div class="span3">
-		  <%=form_for Image.new, :html => {:multipart => true,:id => "new_image"} do |f| %>
+		  <%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 			<div id='file_browse_wrapper' class="mleft"><%= f.file_field :image %></div>
 			<%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
-		  <%end%>
+		  <%end%>		  
 		  <br>  
 		  <form name="dwn" method="post" action="/image_download" id="dwn">
 			<input type="hidden" name="final-image" id="final-image" value="">
@@ -52,6 +52,35 @@
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 
 <script>
- window.onload = canvas();
-  
-</script>
+
+window.onload = function() {
+
+  var img1 = document.getElementById('my_img')
+
+  var pixelOpts = [ { resolution: 2 } ]
+  var pixelimg1 = img1.closePixelate( pixelOpts )
+
+  var range = document.getElementById('range')
+  var output = document.getElementById('output')
+//$("#fbshare").
+  $("#v-slider").slider({
+
+    range: "min",
+    min: 0,
+    max: 100,
+    value: 2,
+    slide: function (event, ui) {
+        $("#output").html(ui.value);
+        
+    var res = ui.value ;
+    res = Math.floor( res / 2 ) * 2
+    res = Math.max( 2, Math.min( 100, res ) )
+    output.textContent = res
+    pixelOpts = [ { resolution: res } ]
+    pixelimg1.render( pixelOpts )
+        
+        
+    }
+});
+
+}
