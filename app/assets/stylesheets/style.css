@@ -2168,7 +2168,7 @@ text-align: left;
 background-color: #0E90D2 !important;
 }
 .btn1{width: 44px;float: left;}
-#save{ background: url('save.png') 0 0 no-repeat;float: right;overflow:hidden;width: 93%;height: 45px;margin-top: 25px;}
+#save{ background: url('newsave.png') 0 0 no-repeat;float: right;overflow:hidden;width: 93%;height: 45px;margin-top: 25px;}
 #fbshare{ background: url('MegaPixel_Button_Facebook.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
 #twshare{ background: url('MegaPixel_Button_Twitter.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
 #emshare{ background: url('MegaPixel_Button_Email.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
