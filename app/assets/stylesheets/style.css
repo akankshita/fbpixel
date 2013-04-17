@@ -2141,7 +2141,7 @@ div.wijmo-wijmenu .wijmo-wijmenu-child .wijmo-wijmenu-text {
 #file_browse_wrapper {
     width: 100%;
     height: 45px;
-    background: url('upload.png') 0 0 no-repeat;
+    background: url('newupload.png') 0 0 no-repeat;
     border:none;
     overflow:hidden;
 	margin-top: 65px;
@@ -2150,7 +2150,7 @@ div.wijmo-wijmenu .wijmo-wijmenu-child .wijmo-wijmenu-text {
     background: url('upload_hover.png') 0 0 no-repeat;
 }*/
 #file_browse_wrapper:active {
-    background: url('upload.png') 0 0 no-repeat;
+    background: url('newupload.png') 0 0 no-repeat;
 }
 .mleft{margin-left: 10px;}
 
