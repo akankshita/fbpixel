@@ -1,13 +1,13 @@
 <div class="container">
-  <h2>ORLY MegaPixelFX - Pixelate Yourself!</h2>
+    <span class="span3"><%=image_tag('MegaPixel_ORLY_logo.png')%></span><span class="span5"><%=image_tag('MegaPixel_App_logo.png')%></span>
   <div class="container-fluid">
 	<div class="row-fluid">
 	  <div class="span12">
-		<div class="span9"> <div style="width:480px;height: 550" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
-		<div class="span3">
+		<div class="span8"> <div style="width:393px;height: 393px" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
+		<div class="span4" style="margin-left:-12px!important;">
 		  <%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 			<div id='file_browse_wrapper' class="mleft"><%= f.file_field :image %></div>
-			<%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
+			<%= f.submit "Upload Image",:class => 'btn',:style=>"display:none;"%>
 		  <%end%>		  
 		  <br>  
 		  <form name="dwn" method="post" action="/image_download" id="dwn">
@@ -18,6 +18,8 @@
 		  </form>
 		  <br><br>
 		  <div id='fbshare' ></div>
+		  <div id='twshare' ></div>
+		   <div id='emshare' ></div>
 		</div>
 	  </div>
 	</div>

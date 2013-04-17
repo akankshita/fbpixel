@@ -1,5 +1,5 @@
 <div class="container">
-   <h2 >ORLY MegaPixelFX - Pixelate Yourself!</h2>
+   <span class="span3"><%=image_tag('MegaPixel_ORLY_logo.png')%></span><span class="span5"><%=image_tag('MegaPixel_App_logo.png')%></span>
    <div class="container-fluid">
     <div class="span5">
       <%=image_tag('upld.png',:id=>"")%>
@@ -9,8 +9,8 @@
         <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
         <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
       <%end%>
-      <%=image_tag('dsave.png')%><br><br><br>
-      <%=image_tag('dfshare.png')%>
+      <%=image_tag('save.png')%><br><br><br>
+      <%=image_tag('MegaPixel_Button_Facebook.png')%>&nbsp;&nbsp;&nbsp;&nbsp;<%=image_tag('MegaPixel_Button_Twitter.png')%>&nbsp;&nbsp;&nbsp;&nbsp;<%=image_tag('MegaPixel_Button_Email.png')%>
     </div>
    </div>
   <br /><br /><br /><br />
