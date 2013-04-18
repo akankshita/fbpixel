@@ -1,9 +1,16 @@
+<div id="loading"></div>
 <div class="container">
     <span class="span3"><%=image_tag('MegaPixel_ORLY_logo.png')%></span><span class="span5"><%=image_tag('MegaPixel_App_logo.png')%></span>
   <div class="container-fluid">
 	<div class="row-fluid">
 	  <div class="span12">
-		<div class="span8"> <div style="width:393px;height: 393px" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
+		<div class="span8"> <div style="width:393px;height: 393px" id="upldimage">
+		<%if !@image.nil?%>
+		<%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%>
+		<%else%>
+		   <%=image_tag('upld.png',:id=>"")%>
+		<%end%>
+		</div></div>
 		<div class="span4" style="margin-left:-12px!important;">
 		  <%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 			<div id='file_browse_wrapper' class="mleft"><%= f.file_field :image %></div>
@@ -17,7 +24,7 @@
 			<div id="save"></div>
 		  </form>
 		  <br><br>
-		  <div id='fbshare' ></div>
+		  <div id='fbshare' ><%=image_tag('MegaPixel_Button_Facebook.png')%></div>
 		  <div id='twshare' ></div>
 		   <div id='emshare' ></div>
 		</div>
@@ -34,7 +41,7 @@
 		<div  id="v-slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-slider-range-min" style="height: 89%;background-color: #0E90D2;"></div><a href="#" class="ui-slider-handle ui-state-default ui-corner-all" style="bottom: 89%;"></a></div>
 	  </span>
 	  <span id="output" >2</span><span class="percentage">%</span>
-	  <span style="float:right;">
+	  &nbsp;<span style="">
 		Pixelize More
 	  </span>
 	</div>
@@ -58,13 +65,14 @@
 window.onload = function() {
 
   var img1 = document.getElementById('my_img')
-
+console.log(img1+'>>>>>>'+img1.height+'<<<<<<'+img1.width);
   var pixelOpts = [ { resolution: 2 } ]
   var pixelimg1 = img1.closePixelate( pixelOpts )
 
   var range = document.getElementById('range')
   var output = document.getElementById('output')
 //$("#fbshare").
+console.log('>>>>');
   $("#v-slider").slider({
 
     range: "min",

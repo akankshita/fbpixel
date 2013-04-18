@@ -15,37 +15,7 @@
 //= require bootstrap
 //= require_tree .
 
-function canvas() {
 
-  var img1 = document.getElementById('my_img')
-
-  var pixelOpts = [ { resolution: 2 } ]
-  var pixelimg1 = img1.closePixelate( pixelOpts )
-
-  var range = document.getElementById('range')
-  var output = document.getElementById('output')
-//$("#fbshare").
-  $("#v-slider").slider({
-
-    range: "min",
-    min: 0,
-    max: 100,
-    value: 2,
-    slide: function (event, ui) {
-        $("#output").html(ui.value);
-        
-    var res = ui.value ;
-    res = Math.floor( res / 2 ) * 2
-    res = Math.max( 2, Math.min( 100, res ) )
-    output.textContent = res
-    // console.log( res );
-    pixelOpts = [ { resolution: res } ]
-    pixelimg1.render( pixelOpts )
-        
-        
-    }
-});
-}
 $(document).ready(function(){
 	$("#image_image").on('change',function(){
 	  $("#new_image").submit();
@@ -58,7 +28,7 @@ $(document).ready(function(){
 	$("#save").click(function(){
 		var canvas = document.getElementById('my_img');
 		var ctx = canvas.getContext("2d");
-		var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),canvas.width-100,canvas.height-75)
+		var t=setTimeout(function(){ctx.drawImage(document.getElementById('textimage'),canvas.width-150,canvas.height-90)
 		var src = canvas.toDataURL();
 		var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
 		var ts = Math.round((new Date()).getTime() / 1000);
@@ -70,12 +40,12 @@ $(document).ready(function(){
 
 	
 	$('#fbshare').click(function() {
-	  
+		$("#fbshare").html('<img src="/assets/progress.gif">');
 	  
 		var canvas = document.getElementById('my_img');
 		var ctx = canvas.getContext("2d");
 		var t=setTimeout(function(){
-			ctx.drawImage(document.getElementById('textimage'),canvas.width-100,canvas.height-75);
+			ctx.drawImage(document.getElementById('textimage'),canvas.width-150,canvas.height-90);
 				var src = canvas.toDataURL();
 				var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
 				var ts = Math.round((new Date()).getTime() / 1000);
@@ -87,6 +57,7 @@ $(document).ready(function(){
 					data: { 'src': canvasrc,'img_url': imgurl,'id':ts},
 					cache: false,
 					success: function (response) {
+					 $("#fbshare").html('<img src="/assets/MegaPixel_Button_Facebook.png">');
 					  $("#final-img").val(response);
 						var filename =$("#final-img").val();
 						FB.init({appId: "157299074435054", status: true, cookie: true});

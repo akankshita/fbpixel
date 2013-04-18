@@ -967,7 +967,7 @@ h2,label,span {color:white}
 }
 .ui-corner-all {
     border-radius: 4px 4px 4px 4px;
-    width: 255px
+    width: 170px
 }
 .ui-corner-top, .ui-corner-left, .ui-corner-tl {
     border-top-left-radius: 4px;
@@ -2169,7 +2169,7 @@ background-color: #0E90D2 !important;
 }
 .btn1{width: 44px;float: left;}
 #save{ background: url('newsave.png') 0 0 no-repeat;float: right;overflow:hidden;width: 93%;height: 45px;margin-top: 25px;}
-#fbshare{ background: url('MegaPixel_Button_Facebook.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
+#fbshare{float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
 #twshare{ background: url('MegaPixel_Button_Twitter.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
 #emshare{ background: url('MegaPixel_Button_Email.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
 .pixless {float:left;margin-left: 20px;margin-right: 13px;}
@@ -2188,3 +2188,5 @@ background-color: #0E90D2 !important;
 .percentage{color: white;float:left}
 #upldimage{width:480px;height: 550}
 #new_image{margin-bottom: -9px;}*/
+
+.logo-img{margin-top: 10px;}
