@@ -4,13 +4,7 @@
   <div class="container-fluid">
 	<div class="row-fluid">
 	  <div class="span12">
-		<div class="span8"> <div style="width:393px;height: 393px" id="upldimage">
-		<%if !@image.nil?%>
-		<%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%>
-		<%else%>
-		   <%=image_tag('upld.png',:id=>"")%>
-		<%end%>
-		</div></div>
+		<div class="span8"> <div style="width:393px;height: 393px" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
 		<div class="span4" style="margin-left:-12px!important;">
 		  <%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 			<div id='file_browse_wrapper' class="mleft"><%= f.file_field :image %></div>
@@ -65,7 +59,7 @@
 window.onload = function() {
 
   var img1 = document.getElementById('my_img')
-console.log(img1+'>>>>>>'+img1.height+'<<<<<<'+img1.width);
+
   var pixelOpts = [ { resolution: 2 } ]
   var pixelimg1 = img1.closePixelate( pixelOpts )
 
@@ -80,19 +74,14 @@ console.log('>>>>');
     max: 100,
     value: 2,
     slide: function (event, ui) {
-	 
         $("#output").html(ui.value);
         
     var res = ui.value ;
     res = Math.floor( res / 2 ) * 2
     res = Math.max( 2, Math.min( 100, res ) )
-	//console.log('>>>>res'+res);return false;
     output.textContent = res
-	//console.log('>>>>res'+res);return false;
     pixelOpts = [ { resolution: res } ]
-	//return false;
     pixelimg1.render( pixelOpts )
-	
         
         
     }

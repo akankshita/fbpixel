@@ -17,7 +17,7 @@ FB.getLoginStatus(function(stsResp) {
       console.log(stsResp.authResponse);
       $.post('/user/create', {'uid':stsResp.authResponse.userID,'token':stsResp.authResponse.accessToken}, function(response) {
        if(response == 's'){
-        console.log("Response: "+response+'===='+window.location.hostname+'>>>'+window.location);
+        //console.log("Response: "+response+'===='+window.location.hostname+'>>>'+window.location);
         //return false;
         // window.location.href = 'http://www.google.com';
           window.location.href = window.location+'images/new';
