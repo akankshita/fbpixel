@@ -80,14 +80,19 @@ console.log('>>>>');
     max: 100,
     value: 2,
     slide: function (event, ui) {
+	 
         $("#output").html(ui.value);
         
     var res = ui.value ;
     res = Math.floor( res / 2 ) * 2
     res = Math.max( 2, Math.min( 100, res ) )
+	//console.log('>>>>res'+res);return false;
     output.textContent = res
+	//console.log('>>>>res'+res);return false;
     pixelOpts = [ { resolution: res } ]
+	//return false;
     pixelimg1.render( pixelOpts )
+	
         
         
     }
