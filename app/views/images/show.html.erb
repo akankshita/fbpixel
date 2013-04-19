@@ -77,17 +77,10 @@ window.onload = function() {
         $("#output").html(ui.value);
         
     var res = ui.value ;
-	var src =  $("#my-img").html();
-	var img = '<img src='+src+' id="my_img" name="my_img" />';
-	 $("#upldimage").empty();
-	 
-    $("#upldimage").html(img);
-	var img1 = document.getElementById('my_img');
     res = Math.floor( res / 2 ) * 2
     res = Math.max( 2, Math.min( 100, res ) )
     output.textContent = res
     pixelOpts = [ { resolution: res } ]
-	//img1.closePixelate( pixelOpts )
     pixelimg1.render( pixelOpts )
         
         
