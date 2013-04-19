@@ -13,12 +13,17 @@ class ImagesController < ApplicationController
     
     @image = Image.new(params[:image])
     @image.save
+    session['imgid'] = @image.id 
     #render :action => 'show'
     redirect_to '/showimg'
   end
   
   def show
-    @image = Image.last
+    if session['imgid'] && !session['imgid'].blank?
+      @image = Image.find(session['imgid'])
+    else
+      redirect_to '/images/new'
+    end
   end
   def save_image
    # alert()
