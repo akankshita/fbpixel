@@ -4,6 +4,7 @@
   <div class="container-fluid">
 	<div class="row-fluid">
 	  <div class="span12">
+		<div id="my-img" style="display:none;"><%=@image.image_url(:thumb)%></div>
 		<div class="span8"> <div style="width:393px;height: 393px" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
 		<div class="span4" style="margin-left:-12px!important;">
 		  <%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
@@ -65,8 +66,6 @@ window.onload = function() {
 
   var range = document.getElementById('range')
   var output = document.getElementById('output')
-//$("#fbshare").
-console.log('>>>>');
   $("#v-slider").slider({
 
     range: "min",
@@ -77,11 +76,18 @@ console.log('>>>>');
         $("#output").html(ui.value);
         
     var res = ui.value ;
+	var src =  $("#my-img").html();
+	var img = '<img src='+src+' id="my_img" name="my_img" />';
+	 $("#upldimage").empty();
+	 
+    $("#upldimage").html(img);
+	var img1 = document.getElementById('my_img');
     res = Math.floor( res / 2 ) * 2
     res = Math.max( 2, Math.min( 100, res ) )
     output.textContent = res
     pixelOpts = [ { resolution: res } ]
-    pixelimg1.render( pixelOpts )
+	img1.closePixelate( pixelOpts )
+   // pixelimg1.render( pixelOpts )
         
         
     }
