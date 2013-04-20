@@ -17,12 +17,10 @@
 
 
 $(document).ready(function(){
-	$("#image_image").on('change',function(){
-	  $("#new_image").submit();
-	});
+
 	
 	$("#image_image").on('change',function(){
-		 $("#new_image").submit();
+		 $("form#new_image").submit();
 	});
 	
 	$("#save").click(function(){

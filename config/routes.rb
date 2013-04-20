@@ -9,7 +9,9 @@ FBAP::Application.routes.draw do
   match '/image/upload' => 'images#new'
   match '/image_save' => 'images#save_image'
   match '/image_download' => 'images#download'
-   resources :images
+  match '/images' => 'images#create'
+  match '/images/new' => 'images#new'
+  resources :images
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

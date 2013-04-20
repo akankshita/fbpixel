@@ -59,7 +59,6 @@
 <script>
 
 window.onload = function() {
-
   var img1 = document.getElementById('my_img')
 
   var pixelOpts = [ { resolution: 2 } ]
@@ -81,7 +80,19 @@ window.onload = function() {
     res = Math.max( 2, Math.min( 100, res ) )
     output.textContent = res
     pixelOpts = [ { resolution: res } ]
-    pixelimg1.render( pixelOpts )
+	if (BrowserDetect.browser == 'Explorer'){
+	  var imgsrc = $("#my-img").html();
+	  var img = '<img src =" '+imgsrc+'" id="my_img"';
+	  $("#upldimage").empty();
+	  $("#upldimage").html(img);
+	   document.getElementById('my_img').closePixelate([
+    { resolution : res },
+    
+  ]);
+	}else{
+	   pixelimg1.render( pixelOpts )
+	}
+   
         
         
     }

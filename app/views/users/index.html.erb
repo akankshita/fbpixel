@@ -18,8 +18,7 @@ FB.getLoginStatus(function(stsResp) {
       console.log(stsResp.authResponse);
       $.post('/user/create', {'uid':stsResp.authResponse.userID,'token':stsResp.authResponse.accessToken}, function(response) {
        if(response == 's'){
-          //window.location = 'images/new';
-           window.location = window.location+'images/new';
+          window.location = 'images/new';
         } 
       console.log("Response: "+response);
       });
