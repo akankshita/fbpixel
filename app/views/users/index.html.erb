@@ -40,15 +40,16 @@ function FBFixLogin(){
 	window.top.location = oauth_url;
 }
 
-FB.getLoginStatus(function(response) {
-    if (response.status === 'connected') {
+FB.getLoginStatus(function(stsResp) {
+	console.log(stsResp);
+    if (stsResp.status === 'connected') {
         $.post('/user/create', {'uid':stsResp.authResponse.userID,'token':stsResp.authResponse.accessToken}, function(response) {
 		   if(response == 's'){
 			  window.location = 'images/new';
 			} 
 		  console.log("Response: "+response);
 		  });
-    } else if (response.status === 'not_authorized') {
+    } else if (stsResp.status === 'not_authorized') {
         // not_authorized
         FBFixLogin();
     } else {
