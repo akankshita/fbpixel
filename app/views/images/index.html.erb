@@ -41,7 +41,7 @@
      js.src = "//connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref);
    }(document));
-  //window.open="FB.login(function(response){},{scope:'email,publish_stream'});"
+  /*window.open="FB.login(function(response){},{scope:'email,publish_stream'});"*/
 </script>
    
-<a href="#" onclick="FB.login(function(response){alert(response.status);},{scope:'email,publish_stream'});">Click</a>
+<a href="#" onclick="FB.login(function(response){alert(response.status);},{scope:'email,publish_stream',display:'page'});">Click</a>

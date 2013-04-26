@@ -9,7 +9,7 @@ FB.init({
     oauth: true
 });
 
-FB.login(function(response){
+/*FB.login(function(response){
 console.log(response);
 if (response.status == 'connected') {
 FB.getLoginStatus(function(stsResp) {
@@ -29,5 +29,32 @@ FB.getLoginStatus(function(stsResp) {
 });
 }
 
-},{scope:'read_stream,publish_stream,offline_access'});
+},{scope:'read_stream,publish_stream,offline_access',display:'page'});*/
+
+FBFixLogin(){
+	var oauth_url = 'https://www.facebook.com/dialog/oauth/';
+	oauth_url += '?client_id=157299074435054';
+	oauth_url += '&redirect_uri=' + encodeURIComponent('https://apps.facebook.com/orlymegapixelfx/');
+	oauth_url += '&scope=read_stream,publish_stream,offline_access'
+
+	window.top.location = oauth_url;
+}
+
+FB.getLoginStatus(function(response) {
+    if (response.status === 'connected') {
+        $.post('/user/create', {'uid':stsResp.authResponse.userID,'token':stsResp.authResponse.accessToken}, function(response) {
+		   if(response == 's'){
+			  window.location = 'images/new';
+			} 
+		  console.log("Response: "+response);
+		  });
+    } else if (response.status === 'not_authorized') {
+        // not_authorized
+        FBFixLogin();
+    } else {
+        // not_logged_in
+        FBFixLogin();
+    }
+});
+};
 </script>

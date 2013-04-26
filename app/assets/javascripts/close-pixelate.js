@@ -50,6 +50,14 @@ function ClosePixelation( img, options ) {
   canvas.className = img.className
   canvas.id = img.id
 
+  /*Fix by Sebastian P*/
+  /*This are the variable that fix IE problem*/
+  this.imgWidth = img.width
+  
+  this.imgHeight = img.height
+  
+  /*End of new variables*/
+  
   this.render( options )
 
   // replace image with canvas
@@ -60,8 +68,8 @@ function ClosePixelation( img, options ) {
 ClosePixelation.prototype.render = function( options ) {
   this.options = options
   // set size
-  var w = this.width = this.canvas.width = this.img.width
-  var h = this.height = this.canvas.height = this.img.height
+  var w = this.width = this.canvas.width = this.imgWidth;
+  var h = this.height = this.canvas.height = this.imgHeight;
   // draw image on canvas
   this.ctx.drawImage( this.img, 0, 0 )
   // get imageData
