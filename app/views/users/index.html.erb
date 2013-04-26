@@ -31,7 +31,7 @@ FB.getLoginStatus(function(stsResp) {
 
 },{scope:'read_stream,publish_stream,offline_access',display:'page'});*/
 
-FBFixLogin(){
+function FBFixLogin(){
 	var oauth_url = 'https://www.facebook.com/dialog/oauth/';
 	oauth_url += '?client_id=157299074435054';
 	oauth_url += '&redirect_uri=' + encodeURIComponent('https://apps.facebook.com/orlymegapixelfx/');
