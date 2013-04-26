@@ -18,6 +18,7 @@ FBAP::Application.configure do
   config.assets.compile = false
 
   config.assets.debug = true
+  config.assets.enabled = false
 
   # Generate digests for assets URLs
  # config.assets.digest = true
