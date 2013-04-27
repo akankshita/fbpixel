@@ -80,7 +80,7 @@ window.onload = function() {
     res = Math.max( 2, Math.min( 100, res ) )
     output.textContent = res
     pixelOpts = [ { resolution: res } ]
-	if (BrowserDetect.browser == 'Explorer'){
+	/*if (BrowserDetect.browser == 'Explorer'){
 	  var imgsrc = $("#my-img").html();
 	  var img = '<img src =" '+imgsrc+'" id="my_img"';
 	  $("#upldimage").empty();
@@ -89,9 +89,9 @@ window.onload = function() {
     { resolution : res },
     
   ]);
-	}else{
+	}else{*/
 	   pixelimg1.render( pixelOpts )
-	}
+	/*}*/
    
         
         
