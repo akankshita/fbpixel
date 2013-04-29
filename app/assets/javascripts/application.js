@@ -65,10 +65,10 @@ $(document).ready(function(){
 						FB.ui(
 							{
 							  method: 'feed',
-							  name: 'ORLY MegaPIxelFX ? Pixelate Yourself!',
+							  name: 'ORLY MegaPixel FX - Pixelate Yourself!',
 							  link: filename,
 							  picture: filename,
-							  caption: '',
+							  caption: 'https://apps.facebook.com/orlymegapixelfx',
 							  description: 'In honor of our new collection, MegaPixel FX, we are giving our fans the opportunity to pixelate themselves!'
 							},
 							function(response) {
