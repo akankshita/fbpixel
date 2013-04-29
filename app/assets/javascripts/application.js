@@ -28,7 +28,7 @@ $(document).ready(function(){
 		var ctx = canvas.getContext("2d");
 		var t=setTimeout(function(){
 			ctx.drawImage(document.getElementById('textimage'),canvas.width-120,canvas.height-90);
-			ctx.drawImage(document.getElementById('otextimage'),0,canvas.height-90);
+			ctx.drawImage(document.getElementById('otextimage'),0,canvas.height-100);
 		var src = canvas.toDataURL();
 		var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
 		var ts = Math.round((new Date()).getTime() / 1000);
@@ -46,7 +46,7 @@ $(document).ready(function(){
 		var ctx = canvas.getContext("2d");
 		var t=setTimeout(function(){
 			ctx.drawImage(document.getElementById('textimage'),canvas.width-120,canvas.height-90);
-			ctx.drawImage(document.getElementById('otextimage'),0,canvas.height-90);
+			ctx.drawImage(document.getElementById('otextimage'),0,canvas.height-100);
 				var src = canvas.toDataURL();
 				var canvasrc = src.replace(/^data:image\/(png|jpg);base64,/, "");
 				var ts = Math.round((new Date()).getTime() / 1000);
