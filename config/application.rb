@@ -59,4 +59,17 @@ module FBAP
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
   end
+
+end
+
+CarrierWave.configure do |config|
+  config.fog_credentials = {
+      :provider               => 'AWS',                        # required
+      :aws_access_key_id      => 'AKIAJY4UDOGVZQWMWZLA',                        # required
+      :aws_secret_access_key  => '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',                        # required
+      :region                 => 'us-west-2',                  # optional, defaults to 'us-east-1'
+  }
+  config.fog_directory  = 'orlymegapixelfx'                     # required
+  config.fog_public     = false                                   # optional, defaults to true
+  config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
 end
