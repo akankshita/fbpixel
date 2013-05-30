@@ -3,20 +3,20 @@
    <span class="span3"><%=image_tag('MegaPixel_ORLY_logo.png')%></span><span class="span5"><%=image_tag('MegaPixel_App_logo.png')%></span></div>
    <div class="container-fluid">
     <div class="span5">
-      <%=image_tag('upld.png',:id=>"")%>
+      <%=image_tag('upld.png',:id=>"",:style=>'margin-left:-20px;')%>
     </div>
     <div class="span3">
       <%=form_for @image, :html => {:multipart => true,:style=>"margin-bottom: -9px;"} do |f| %>
         <div id='file_browse_wrapper'><%= f.file_field :image %></div><br/><br/>
         <%= f.submit "Upload Image",:class => 'btn',:style=>"display:none"%>
       <%end%>
-      <%=image_tag('newsave.png')%><br><br><br>
-      <%=image_tag('MegaPixel_Button_Facebook.png')%>&nbsp;&nbsp;&nbsp;&nbsp;<%=image_tag('MegaPixel_Button_Twitter.png')%>&nbsp;&nbsp;&nbsp;&nbsp;<%=image_tag('MegaPixel_Button_Email.png')%>
+      <%=image_tag('newsave.png',:class => "nsave")%><br><br>
+      <div class="nsimg"><%=image_tag('MegaPixel_Button_Facebook.png')%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<%=image_tag('MegaPixel_Button_Twitter.png')%>&nbsp;&nbsp;&nbsp;&nbsp;<%=image_tag('MegaPixel_Button_Email.png')%></div>
     </div>
    </div>
   <br /><br /><br /><br />
   <div class="row">
-      <div class="span7">
+      <div class="span8">
          <%= render :partial => '/images/instruction', :layout => false %>
       </div>
       <div class="span5"></div>

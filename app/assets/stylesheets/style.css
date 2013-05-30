@@ -2145,6 +2145,7 @@ div.wijmo-wijmenu .wijmo-wijmenu-child .wijmo-wijmenu-text {
     border:none;
     overflow:hidden;
 	margin-top: 65px;
+	margin-left: -18px;
 }
 /*#file_browse_wrapper:hover {
     background: url('upload_hover.png') 0 0 no-repeat;
@@ -2152,7 +2153,7 @@ div.wijmo-wijmenu .wijmo-wijmenu-child .wijmo-wijmenu-text {
 #file_browse_wrapper:active {
     background: url('newupload.png') 0 0 no-repeat;
 }
-.mleft{margin-left: 10px;}
+.mleft{margin-left: 13px;}
 
 
 #image_image{
@@ -2168,11 +2169,11 @@ text-align: left;
 background-color: #0E90D2 !important;
 }
 .btn1{width: 44px;float: left;}
-#save{ background: url('newsave.png') 0 0 no-repeat;float: right;overflow:hidden;width: 93%;height: 45px;margin-top: 25px;}
-#fbshare{float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
-#twshare{ background: url('MegaPixel_Button_Twitter.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
-#emshare{ background: url('MegaPixel_Button_Email.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 25px;margin-left:13px;}
-.pixless {float:left;margin-left: 20px;margin-right: 13px;}
+#save{ background: url('newsave.png') 0 0 no-repeat;overflow:hidden;width: 93%;height: 45px;margin-top: 9px;margin-left: -18px;}
+#fbshare{float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 9px;margin-left:-19px;}
+#twshare{ background: url('MegaPixel_Button_Twitter.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 9px;margin-left:22px;}
+#emshare{ background: url('MegaPixel_Button_Email.png') 0 0 no-repeat;float:left;overflow:hidden;width: 44px;height: 45px;margin-top: 9px;margin-left:22px;}
+.pixless {float:left;margin-left: 22px;margin-right: 13px;}
 .pslider{float:left;margin-top: 3px;}
 #output{float:left;margin-left: 10px;}
 .percentage{color: white;float:left}
@@ -2190,3 +2191,7 @@ background-color: #0E90D2 !important;
 #new_image{margin-bottom: -9px;}*/
 
 .logo-img{margin-top: 10px;}
+.myspan{width:90% !important;}
+.nsave{ margin-left: -17px; margin-top: -13px;}
+.nsimg{ margin-left: -17px;}
+.instruction{color: white;text-align:left;font-weight: bold;margin-left: 23px;}

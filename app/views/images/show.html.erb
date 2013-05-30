@@ -5,7 +5,7 @@
 	<div class="row-fluid">
 	  <div class="span12">
 		<div id="my-img" style="display:none;"><%=@image.image_url(:thumb)%></div>
-		<div class="span8"> <div style="width:393px;height: 393px" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img"%></div></div>
+		<div class="span8"> <div style="width:380px;height: 393px;margin-left:-14px;" id="upldimage"> <%= image_tag @image.image_url(:thumb) ,:id=>"my_img",:style=>''%></div></div>
 		<div class="span4" style="margin-left:-12px!important;">
 		  <%=form_for Image.new, :html => {:multipart => true,:id => "new_image",:style=>"margin-bottom: -9px;"} do |f| %>
 			<div id='file_browse_wrapper' class="mleft"><%= f.file_field :image %></div>
@@ -18,7 +18,7 @@
 			  <input type="hidden" name="imurl" id="imurl" value="<%=@image.image_url%>">
 			<div id="save"></div>
 		  </form>
-		  <br><br>
+		  
 		  <div id='fbshare' ><%=image_tag('MegaPixel_Button_Facebook.png')%></div>
 		  <div id='twshare' ></div>
 		   <div id='emshare' ></div>
@@ -45,7 +45,7 @@
   </div>
   <br /><br /><br /> 
   <div class="row-fluid">
-	<div class="span10">
+	<div class="myspan">
 	   <%= render :partial => '/images/instruction', :layout => false %>
 	</div>
 	<div class="span5"></div>

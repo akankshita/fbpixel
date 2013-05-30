@@ -2,8 +2,8 @@
 <script src="https://connect.facebook.net/en_US/all.js"></script>
 <script type="text/javascript">
 FB.init({
-    appId: '157299074435054',
-   // appId: '342990409138730',
+   // appId: '157299074435054',
+    appId: '342990409138730',
     status: true,
     cookie: true,
     oauth: true
@@ -33,7 +33,7 @@ FB.getLoginStatus(function(stsResp) {
 
 function FBFixLogin(){
 	var oauth_url = 'https://www.facebook.com/dialog/oauth/';
-	oauth_url += '?client_id=157299074435054';
+	oauth_url += '?client_id=342990409138730';
 	oauth_url += '&redirect_uri=' + encodeURIComponent('https://apps.facebook.com/orlymegapixelfx/');
 	oauth_url += '&scope=read_stream,publish_stream,offline_access'
 
